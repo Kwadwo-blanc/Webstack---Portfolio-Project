@@ -1,4 +1,4 @@
-# Personal Financial Tracker
+# Economic Financial Tracker
 
 ## Overview
 

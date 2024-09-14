@@ -1,11 +1,13 @@
-from flask import Flask, render_template, request, redirect
-from flask import url_for, flash, session
+from flask import Flask, render_template, request, redirect, url_for, flash, session
 import mysql.connector
 from werkzeug.security import generate_password_hash, check_password_hash
 from config import Config, db
+from deposit import deposit
+from withdraw import withdraw
 
 app = Flask(__name__)
 app.config.from_object(Config)  # Load configurations
+
 
 
 
@@ -208,6 +210,45 @@ def account():
     cursor.close()
 
     return render_template('account.html', user=user)
+
+
+@app.route('/deposit', methods=['POST'])
+def handle_deposit():
+    """
+    Handle deposit requests.
+    """
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    try:
+        amount = float(request.form['amount'])
+        deposit(session['user_id'], amount)
+        flash('Deposit successful!', 'success')
+    except ValueError as e:
+        flash(str(e), 'danger')
+    except mysql.connector.Error as err:
+        flash(f'Error: {err}', 'danger')
+
+    return redirect(url_for('index'))
+
+@app.route('/withdraw', methods=['POST'])
+def handle_withdrawal():
+    """
+    Handle withdrawal requests.
+    """
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    try:
+        amount = float(request.form['amount'])
+        withdraw(session['user_id'], amount)
+        flash('Withdrawal successful!', 'success')
+    except ValueError as e:
+        flash(str(e), 'danger')
+    except mysql.connector.Error as err:
+        flash(f'Error: {err}', 'danger')
+
+    return redirect(url_for('index'))
 
 
 if __name__ == '__main__':

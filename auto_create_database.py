@@ -12,13 +12,12 @@ cursor = db.cursor()
 # Create the database if it doesn't exist
 cursor.execute("CREATE DATABASE IF NOT EXISTS TrackMyFunds")
 cursor.execute("USE TrackMyFunds")
-print("Create the database if it doesn't exist.")
 
 # Drop tables if they exist
 cursor.execute("DROP TABLE IF EXISTS expenses")
 cursor.execute("DROP TABLE IF EXISTS users")
-print("Droping expenses table if exists.")
-print("Droping user table if exists.")
+cursor.execute("DROP TABLE IF EXISTS transactions")  # Drop transactions table if exists
+print("Dropping tables if they exist.")
 
 # Create `users` table
 cursor.execute("""
@@ -44,6 +43,19 @@ CREATE TABLE expenses (
 )
 """)
 print("Create `expenses` table.")
+
+# Create `transactions` table
+cursor.execute("""
+CREATE TABLE transactions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT NOT NULL,
+    type ENUM('deposit', 'withdrawal') NOT NULL,
+    amount DECIMAL(10, 2) NOT NULL,
+    date TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
+)
+""")
+print("Create `transactions` table.")
 
 db.commit()
 cursor.close()

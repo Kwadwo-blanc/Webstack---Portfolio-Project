@@ -94,6 +94,15 @@ def logout():
     session.pop('user_id', None)
     return redirect(url_for('login'))
 
+@app.route('/transaction')
+def transaction():
+    """
+    Render the transaction page where users can deposit or withdraw funds.
+    """
+    if 'user_id' not in session:
+        return redirect(url_for('login'))
+
+    return render_template('transaction.html')
 
 @app.route('/add_expense', methods=['POST'])
 def add_expense():

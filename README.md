@@ -1,4 +1,4 @@
-# Economic Financial Tracker
+# Personal Financial Tracker
 
 ## Overview
 
@@ -15,7 +15,7 @@ This Flask application is designed to help users manage their personal finances.
 - Python 3.x
 - Flask
 - MySQL Connector
-- Werkzeug
+- XAMPP local server
 
 ## Preview
 

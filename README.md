@@ -29,6 +29,7 @@ This Flask application is designed to help users manage their personal finances.
 
  - Run the auto_create_database.py script to set up the database for the project. Ensure you use the correct server credentials (the default credentials are provided in the script).
  - Run the flask application.
+ 
  ![flask.png](images/flask.png)
 
 

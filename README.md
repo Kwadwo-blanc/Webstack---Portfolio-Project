@@ -18,18 +18,17 @@ This Flask application is designed to help users manage their personal finances.
 - XAMPP local server
 
 ## How to set it up
- - Create your virtual environment and activate it.
+ - Create and Activate Your Virtual Environment.
 
  ![venv.png](images/venv.png)
 
- - install the requirements(flask, MySQL Connector)
- - Download XAMPP install manually and start the service.
+ - Install the required packages such as Flask and MySQL Connector.
+ - Download and install XAMPP manually. Once installed, start the MySQL service.
 
  ![xampp.png](images/xampp.png)
 
- - Run the auto_create_database.py to setup the database for the project.
- with right server credeintial. (one in the script is the default credendtial)
- - fun the flask application.
+ - Run the auto_create_database.py script to set up the database for the project. Ensure you use the correct server credentials (the default credentials are provided in the script).
+ - Run the flask application.
  ![flask.png](images/flask.png)
 
 

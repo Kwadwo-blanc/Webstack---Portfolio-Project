@@ -19,14 +19,19 @@ This Flask application is designed to help users manage their personal finances.
 
 ## How to set it up
  - Create your virtual environment and activate it.
+
  ![venv.png](images/venv.png)
+
  - install the requirements(flask, MySQL Connector)
  - Download XAMPP install manually and start the service.
+
  ![xampp.png](images/xampp.png)
+
  - Run the auto_create_database.py to setup the database for the project.
  with right server credeintial. (one in the script is the default credendtial)
  - fun the flask application.
- ![2.png](images/2.png)
+ ![flask.png](images/flask.png)
+
 
 ## Preview
 

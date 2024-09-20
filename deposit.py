@@ -1,6 +1,7 @@
 import mysql.connector
 from config import db  # Make sure `db` is the correct MySQL connection
 
+
 def deposit(user_id, amount):
     """
     Handle depositing funds for a user.

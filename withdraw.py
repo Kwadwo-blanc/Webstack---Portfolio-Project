@@ -1,6 +1,7 @@
 import mysql.connector
 from config import db  # Make sure `db` is the correct MySQL connection
 
+
 def withdraw(user_id, amount):
     """
     Handle withdrawing funds for a user.

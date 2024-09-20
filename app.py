@@ -9,8 +9,6 @@ app = Flask(__name__)
 app.config.from_object(Config)  # Load configurations
 
 
-
-
 @app.route('/')
 def index():
     """
@@ -94,6 +92,7 @@ def logout():
     session.pop('user_id', None)
     return redirect(url_for('login'))
 
+
 @app.route('/transaction')
 def transaction():
     """
@@ -103,6 +102,7 @@ def transaction():
         return redirect(url_for('login'))
 
     return render_template('transaction.html')
+
 
 @app.route('/add_expense', methods=['POST'])
 def add_expense():
@@ -239,6 +239,7 @@ def handle_deposit():
         flash(f'Error: {err}', 'danger')
 
     return redirect(url_for('index'))
+
 
 @app.route('/withdraw', methods=['POST'])
 def handle_withdrawal():

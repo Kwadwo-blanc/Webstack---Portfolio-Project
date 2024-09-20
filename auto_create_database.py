@@ -15,7 +15,8 @@ cursor.execute("USE TrackMyFunds")
 
 # Drop tables in the correct order (dependent tables first)
 cursor.execute("DROP TABLE IF EXISTS expenses")
-cursor.execute("DROP TABLE IF EXISTS transactions")  # Drop transactions table if exists
+cursor.execute("DROP TABLE IF EXISTS transactions")
+# Drop transactions table if exists
 cursor.execute("DROP TABLE IF EXISTS users")
 print("Dropping tables if they exist.")
 

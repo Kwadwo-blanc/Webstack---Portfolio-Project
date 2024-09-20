@@ -1,6 +1,7 @@
 # config.py
 import mysql.connector
 
+
 class Config:
     SECRET_KEY = 'your_secret_key'
     DB_HOST = 'localhost'
@@ -9,6 +10,8 @@ class Config:
     DB_NAME = 'TrackMyFunds'
 
 # Create a database connection
+
+
 db = mysql.connector.connect(
     host=Config.DB_HOST,
     user=Config.DB_USER,
